@@ -14,7 +14,7 @@ export async function POST(request: Request) {
       from: 'Contact Form <onboarding@resend.dev>', // This is a required field, 'onboarding@resend.dev' is a good default
       to: ['singgihkosasih123@gmail.com'], // <--- IMPORTANT: REPLACE THIS WITH YOUR ACTUAL EMAIL ADDRESS
       subject: `New Message from ${name} via Portfolio`,
-      reply_to: email, // Set the reply-to address to the user's email
+      replyTo: email, // Set the reply-to address to the user's email
       html: `<p>You have a new message from your portfolio contact form.</p>
              <p><strong>Name:</strong> ${name}</p>
              <p><strong>Email:</strong> ${email}</p>
