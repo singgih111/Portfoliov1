@@ -37,6 +37,8 @@ export default function PortfolioShowcase() {
   const [showAllProjects, setShowAllProjects] =
     useState(false)
 
+  const hasMoreProjects = projects.length > 3
+
   const displayedProjects = showAllProjects
     ? projects
     : projects.slice(0, 3)
@@ -153,6 +155,7 @@ export default function PortfolioShowcase() {
                       ease: smoothEase,
                     },
                   }}
+                  id="portfolio-projects-grid"
                   className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 px-1"
                 >
                   <AnimatePresence mode="popLayout">
@@ -200,8 +203,7 @@ export default function PortfolioShowcase() {
                 </motion.div>
 
                 {/* SEE MORE / LESS */}
-                {!loading &&
-                  projects.length > 3 && (
+                {!loading && hasMoreProjects && (
                     <motion.div
                       layout
                       transition={{
@@ -211,6 +213,7 @@ export default function PortfolioShowcase() {
                       className="flex justify-center"
                     >
                       <motion.button
+                        type="button"
                         layout
                         whileHover={{
                           scale: 1.04,
@@ -223,14 +226,16 @@ export default function PortfolioShowcase() {
                             !showAllProjects
                           )
                         }
+                        aria-expanded={showAllProjects}
+                        aria-controls="portfolio-projects-grid"
                         className="px-6 py-3 rounded-full border border-white/10 bg-white/[0.05] backdrop-blur-xl text-sm text-white/75 hover:text-white transition flex items-center gap-2"
                       >
                         <AnimatePresence mode="wait">
                           <motion.div
                             key={
                               showAllProjects
-                                ? 'less'
-                                : 'more'
+                                ? 'show-less'
+                                : 'show-more'
                             }
                             initial={{
                               opacity: 0,
@@ -254,15 +259,20 @@ export default function PortfolioShowcase() {
                                 <ChevronUp
                                   size={16}
                                 />
-                                See Less
+                                Show Less Projects
                               </>
                             ) : (
                               <>
                                 <ChevronDown
                                   size={16}
                                 />
-                                See More
+                                Show More Projects
                               </>
+                            )}
+                            {!showAllProjects && (
+                              <span className="text-white/45">
+                                ({projects.length})
+                              </span>
                             )}
                           </motion.div>
                         </AnimatePresence>
