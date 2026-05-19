@@ -41,7 +41,7 @@ export default function PortfolioShowcase() {
 
   const displayedProjects = showAllProjects
     ? projects
-    : projects.slice(0, 2)
+    : projects.slice(0, 3)
 
   return (
     <>
