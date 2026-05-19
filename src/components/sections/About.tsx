@@ -332,7 +332,7 @@ export default function About() {
                 }}
               >
                 <img
-                  src="/assets/PP.png"
+                  src="/assets/PP(2).png"
                   alt="Profile"
                   style={{
                     width: 240,
