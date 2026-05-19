@@ -199,7 +199,7 @@ export default function WelcomeScreen() {
     color: 'rgba(255,255,255,0.7)',
   }}
 >
-  Welcome to my portofolio
+  Singgih Kosasih
 </motion.div>
       </motion.div>
     </div>
