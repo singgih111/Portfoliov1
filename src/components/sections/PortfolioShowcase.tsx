@@ -37,15 +37,19 @@ export default function PortfolioShowcase() {
   const [showAllProjects, setShowAllProjects] =
     useState(false)
 
-  const hasMoreProjects = projects.length > 3
+  const initialProjectsToShow =
+    projects.length <= 5 ? projects.length : 4
+
+  const hasMoreProjects =
+    projects.length > initialProjectsToShow
 
   const displayedProjects = showAllProjects
     ? projects
-    : projects.slice(0, 3)
+    : projects.slice(0, initialProjectsToShow)
 
   return (
     <>
-      {/* PREVIEW */}
+
       <AnimatePresence>
         {previewOpen && (
           <motion.div
