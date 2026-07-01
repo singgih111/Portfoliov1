@@ -92,7 +92,7 @@ export default function Hero({ showApp }: HeroProps) {
               textTransform: "uppercase",
             }}
           >
-            ✦ Available for work
+            許洪湘
           </span>
         </motion.div>
 
